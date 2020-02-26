@@ -1,0 +1,120 @@
+:root {
+    --border-padding: 50px;
+}
+
+body {
+    margin: 0;
+    font-family: 'Playfair Display', serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+figure {
+    opacity: 0;
+    transition: opacity 0.8s;
+}
+
+figure > video {
+    position: fixed;
+    top: var(--border-padding);
+    left: var(--border-padding);
+    height: calc(100% - 2 * var(--border-padding));
+    width: calc(100% - 2 * var(--border-padding));
+
+    object-fit: cover;
+
+    opacity: 0.7;
+}
+
+figure > figcaption {
+    position: fixed;
+    right: calc(2 * var(--border-padding));
+    bottom: var(--border-padding);
+    transform: translateY(50%);
+    
+    display: flex; 
+    align-items: flex-end;
+    
+    margin: 0;
+    margin-bottom: 0.1em;
+    
+    font-size: 40px;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+figure > figcaption > em {
+    display: inline-block;
+    margin: 0 0.5em 0.2em;
+    
+    font-size: 0.6em;
+    font-style: normal;
+}
+
+figure a {
+    position: relative;
+    font-weight: inherit;
+    cursor: pointer;
+    color: inherit;
+
+    text-decoration: inherit;
+    border-bottom: 1px solid #000;
+}
+
+figure > p {
+    position: fixed;
+    right: calc(var(--border-padding) + 20px);
+    bottom: calc(100% - var(--border-padding));
+    transform: translateY(44%);
+
+    margin: 0;
+
+    font-size: 18px;
+    font-weight: 500;
+}
+
+#loader {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-size: 40px;
+}
+
+#loader > span {
+    opacity: 0;
+    animation: load 2s infinite; 
+}
+
+#loader > span:nth-child(1) {
+    animation-delay: .0s;
+}
+#loader > span:nth-child(2) {
+    animation-delay: .2s;
+}
+#loader > span:nth-child(3) {
+    animation-delay: .4s;
+}
+
+#defaultError, #keyError {
+    display: none;
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    margin: 0;
+    font-size: 20px;
+}
+
+@keyframes load {
+    10%, 50% {
+        opacity: 1;
+    }
+    0%, 100% {
+        opacity: 0;
+    }
+}
